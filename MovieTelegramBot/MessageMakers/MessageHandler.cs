@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -13,9 +14,9 @@ namespace MovieTelegramBot
             BotManager = manager;
         }
 
-        public abstract void HandleMessage(Message message);
+        public abstract Task HandleMessage(Message message);
 
-        public abstract void EnterNewState(Message message);
+        public abstract Task EnterNewState(Message message);
 
     }
 }

@@ -25,7 +25,7 @@ namespace MovieTelegramBot
 
         private async Task ErrorHandler(ITelegramBotClient client, Exception exception, CancellationToken cancellationToken)
         {
-            throw new Exception();
+            await new Task(() => throw new Exception());
         } 
 
         public async Task UpdateHandler(ITelegramBotClient client, Update update, CancellationToken cancellationToken)
@@ -34,7 +34,7 @@ namespace MovieTelegramBot
             {
                 _message = update.Message;
 
-                CurrentMessageHandler.HandleMessage(_message);
+                await CurrentMessageHandler.HandleMessage(_message);
             }
         }
 
